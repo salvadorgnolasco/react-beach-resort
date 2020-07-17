@@ -22,7 +22,7 @@ class RoomContextProvider extends Component {
   componentDidMount() {
     let rooms = this.formatData(items);
     let featuredRooms = rooms.filter(room => room.featured === true);
-    console.log('rooms', rooms)
+    
     this.setState({
       rooms,
       sortedRooms: rooms,
