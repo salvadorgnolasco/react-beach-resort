@@ -8,7 +8,6 @@ import { RoomContextConsumer } from '../RoomContext';
 
 export default class FeatureRooms extends Component {
 
-
   getListOfRooms(rooms) {
     return rooms.featuredRooms.map(room => <Room key={room.id} room={room} />);
   }

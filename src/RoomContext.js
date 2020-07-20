@@ -22,14 +22,14 @@ class RoomContextProvider extends Component {
   componentDidMount() {
     let rooms = this.formatData(items);
     let featuredRooms = rooms.filter(room => room.featured === true);
-    
+
     this.setState({
       rooms,
       sortedRooms: rooms,
       featuredRooms,
       loading: false,
     });
-  } 
+  }
 
   formatData(items) {
     let temporalItems = items.map(item => {
@@ -42,9 +42,15 @@ class RoomContextProvider extends Component {
     return temporalItems;
   }
 
+  getRoom = (slug) => {
+    let tempRoom = [...this.state.rooms];
+    const room = tempRoom.find((room) => room.slug === slug);
+    return room;
+  }
+
   render() {
     return (
-      <RoomContext.Provider value={{ ...this.state }}>
+      <RoomContext.Provider value={{ ...this.state, getRoom: this.getRoom, }}>
         {this.props.children}
       </RoomContext.Provider>
     )

@@ -1,6 +1,7 @@
 import Hero from '../components/Hero';
 import Banner from '../components/Banner';
 import Services from '../components/Services';
+import Button from '../components/StyledHero';
 
 import {Link} from 'react-router-dom';
 
@@ -19,6 +20,7 @@ export default function Home() {
       </Hero>
       <Services />
       <FeaturedRooms />
+      <Button>Hello</Button>
     </>
   )
 }
