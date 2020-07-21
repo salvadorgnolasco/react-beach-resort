@@ -41,7 +41,7 @@ export default class SingleRoom extends Component {
           <Banner title={`${name} room`}>
             <Link to="/rooms" className="btn-primary">
               Bact to rooms
-          </Link>
+            </Link>
           </Banner>
         </StyledHero>
         <section className="single-room">

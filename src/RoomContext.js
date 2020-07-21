@@ -3,8 +3,6 @@ import React, { Component } from 'react';
 
 import items from './data';
 
-
-
 const RoomContext = React.createContext();
 
 class RoomContextProvider extends Component {
@@ -30,7 +28,7 @@ class RoomContextProvider extends Component {
       loading: false,
     });
   }
-
+  
   formatData(items) {
     let temporalItems = items.map(item => {
       let id = item.sys.id;
