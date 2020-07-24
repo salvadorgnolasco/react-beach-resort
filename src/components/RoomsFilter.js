@@ -39,6 +39,7 @@ export default function RoomsFilter({ rooms }) {
     <section className="filter-container">
       <Title title="search rooms" />
       <form className="filter-form">
+
         {/* Select type */}
         <div className="form-group">
           <label htmlFor="type">room type</label>
@@ -57,10 +58,49 @@ export default function RoomsFilter({ rooms }) {
             value={capacity}
             className="form-control"
             onChange={handleChange}>
-              {capacities}
+            {capacities}
           </select>
         </div>
         {/* End Capacity filter */}
+
+        {/* Price filter */}
+        <div className="form-group">
+          <label htmlFor="price">room price ${price}</label>
+          <input id="price" type="range"
+            name="price"
+            value={price}
+            min={minPrice} max={maxPrice}
+            onChange={handleChange} className="form-control">
+          </input>
+        </div>
+        {/* End Price filter */}
+
+
+        {/* Size filter */}
+        <div className="form-group">
+          <label htmlFor="size">room size</label>
+          <div className="size-inputs">
+            <input type="number" name="minSize" value={minSize} id="size" onChange={handleChange} className="size-input" />
+            <input type="number" name="maxSize" value={maxSize} id="size" onChange={handleChange} className="size-input" />
+          </div>
+        </div>
+        {/* End Size filter */}
+
+        {/* Pet and Breakfast filter */}
+        <div className="form-group">
+          <div className="single-extra">
+            <input type="checkbox" name="breakfast" id="breakfast" checked={breakfast} onChange={handleChange} />
+            <label htmlFor="breakfast">breakfast</label>
+          </div>
+
+          <div className="single-extra">
+            <input type="checkbox" name="pets" id="pets" checked={pets} onChange={handleChange} />
+            <label htmlFor="pets">pets</label>
+          </div>
+          
+        </div>
+        {/* End Pet and Breakfast filter */}
+
       </form>
     </section>
   )

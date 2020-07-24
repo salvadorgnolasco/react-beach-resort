@@ -79,15 +79,28 @@ class RoomContextProvider extends Component {
 
     if (type !== 'all') {
       tempRooms = tempRooms
-      .filter(room => room.type === type);      
+        .filter(room => room.type === type);
     }
 
-    console.log('tempRooms', tempRooms);
-
-    if (parseInt(capacity) !== 1) {
+    capacity = parseInt(capacity);
+    if (capacity !== 1) {
       tempRooms = tempRooms
-      .filter(room => room.capacity >= parseInt(capacity));
+        .filter(room => room.capacity >= capacity);
     }
+
+    price = parseInt(price);
+    tempRooms = tempRooms
+      .filter(room => room.price <= price)
+      .filter(room => room.size >= minSize && room.size <= maxSize);
+
+    if(breakfast) {
+      tempRooms = tempRooms.filter(room => room.breakfast === true)
+    }
+
+    if(pets) {
+      tempRooms = tempRooms.filter(room => room.pets === true)
+    }
+
 
     this.setState({
       sortedRooms: tempRooms,
